@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Pressing Docket · DC Collection</title>
   <meta name="description" content="A personal inventory of 30 raw DC comics queued for pressing and cleaning." />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -16,9 +16,9 @@
 <body>
   <div class="topline"></div><div class="wrap">
     <header class="masthead"><div class="brand"><span class="brand-mark">DC</span><span>Personal Collection / Pressing File</span></div><span class="issue">Owner: Michael Cahalane · <a href="mailto:mrcahalane@gmail.com">mrcahalane@gmail.com</a> · <a href="https://www.instagram.com/robincomics/" target="_blank" rel="noopener">Robin Comics</a> · Docket 01 · 2026</span></header>
-    <section class="hero"><div><div class="eyebrow">Raw inventory · pressing &amp; cleaning queue</div><h1>THE<br><span>PRESSING</span><br>DOCKET</h1><p class="hero-copy">A working list of the books being prepared for pressing and cleaning before they ship to CGC for grading.</p></div><figure class="hero-photo"><img src="/group.jpg" alt="The comic book inventory laid out together" /></figure></section>
+    <section class="hero"><div><div class="eyebrow">Raw inventory · pressing &amp; cleaning queue</div><h1>THE<br><span>PRESSING</span><br>DOCKET</h1><p class="hero-copy">A working list of the books being prepared for pressing and cleaning before they ship to CGC for grading.</p></div><figure class="hero-photo"><img src="group.jpg" alt="The comic book inventory laid out together" /></figure></section>
     <section class="stats" aria-label="Inventory summary"><div class="stat"><b>30</b><small>Raw comics</small></div><div class="stat"><b>5</b><small>Core titles</small></div><div class="stat"><b>11</b><small>Variant / special editions</small></div><div class="stat"><b>01</b><small>Pressing batch</small></div></section>
-    <section id="inventory"><div class="section-head"><h2>Inventory / 001—030</h2><p><a href="/presser-checklist.pdf" download>Download presser checklist PDF</a> · Tap a cover for the full docket note</p></div><div class="grid" id="grid"></div></section>
+    <section id="inventory"><div class="section-head"><h2>Inventory / 001—030</h2><p><a href="presser-checklist.pdf" download>Download presser checklist PDF</a> · Tap a cover for the full docket note</p></div><div class="grid" id="grid"></div></section>
     <footer class="footer"><span>THE PRESSING DOCKET / PERSONAL ARCHIVE</span><span>DC COMICS COLLECTION · RAW CONDITION</span></footer>
   </div>
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Comic detail"><div class="dialog"><div class="cover"><img id="modalImg" alt="" /></div><div class="dialog-content"><button class="close" id="close" aria-label="Close">×</button><div class="eyebrow" id="modalNo"></div><h3 id="modalTitle"></h3><p id="modalDetail"></p><div class="rule"></div><p><strong>STATUS</strong><br><span style="color:var(--blue)">RAW · QUEUED FOR PRESSING / CLEANING</span></p></div></div></div>
@@ -28,7 +28,7 @@
     ];
     books[12][2]='German copy · Jim Lee Variant';
     const grid=document.querySelector('#grid');
-    books.forEach((b,i)=>{const n=String(66+i).padStart(2,'0');const el=document.createElement('article');el.className='card';el.innerHTML=`<div class="cover"><img src="/covers/IMG_00${n}.jpg" alt="${b[0]} ${b[1]} cover" loading="lazy"></div><div class="card-body"><div class="card-no">${String(i+1).padStart(3,'0')} / ${b[1]}</div><div class="card-title">${b[0]}</div><div class="card-detail">${b[2]||'Standard issue'}</div><span class="tag">Raw</span></div>`;el.onclick=()=>openBook(i,n);grid.appendChild(el)});
-    const modal=document.querySelector('#modal');function openBook(i,n){const b=books[i];document.querySelector('#modalImg').src=`/covers/IMG_00${n}.jpg`;document.querySelector('#modalImg').alt=`${b[0]} ${b[1]} cover`;document.querySelector('#modalNo').textContent=`Docket ${String(i+1).padStart(3,'0')} · ${b[1]}`;document.querySelector('#modalTitle').textContent=b[0];document.querySelector('#modalDetail').textContent=b[2]||'Standard issue';modal.classList.add('open');document.querySelector('#close').focus()}function close(){modal.classList.remove('open')}document.querySelector('#close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+    books.forEach((b,i)=>{const n=String(66+i).padStart(2,'0');const el=document.createElement('article');el.className='card';el.innerHTML=`<div class="cover"><img src="covers/IMG_00${n}.jpg" alt="${b[0]} ${b[1]} cover" loading="lazy"></div><div class="card-body"><div class="card-no">${String(i+1).padStart(3,'0')} / ${b[1]}</div><div class="card-title">${b[0]}</div><div class="card-detail">${b[2]||'Standard issue'}</div><span class="tag">Raw</span></div>`;el.onclick=()=>openBook(i,n);grid.appendChild(el)});
+    const modal=document.querySelector('#modal');function openBook(i,n){const b=books[i];document.querySelector('#modalImg').src=`covers/IMG_00${n}.jpg`;document.querySelector('#modalImg').alt=`${b[0]} ${b[1]} cover`;document.querySelector('#modalNo').textContent=`Docket ${String(i+1).padStart(3,'0')} · ${b[1]}`;document.querySelector('#modalTitle').textContent=b[0];document.querySelector('#modalDetail').textContent=b[2]||'Standard issue';modal.classList.add('open');document.querySelector('#close').focus()}function close(){modal.classList.remove('open')}document.querySelector('#close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   </script>
 </body></html>
